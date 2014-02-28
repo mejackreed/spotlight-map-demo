@@ -1,0 +1,198 @@
+[
+  {
+    "searchTerm": "Africa--Maps",
+    "geometry": {
+      "lat": -1.283113,
+      "lng": 36.818225
+    }
+  },
+  {
+    "searchTerm": "Africa",
+    "geometry": {
+      "lat": -8.783195,
+      "lng": 34.508523
+    }
+  },
+  {
+    "searchTerm": "Africa, North",
+    "geometry": {
+      "lat": -8.783195,
+      "lng": 34.508523
+    }
+  },
+  {
+    "searchTerm": "Northern Africa",
+    "geometry": {
+      "lat": 23.4162027,
+      "lng": 25.66283
+    }
+  },
+  {
+    "searchTerm": "Egypt",
+    "geometry": {
+      "lat": 26.820553,
+      "lng": 30.802498
+    }
+  },
+  {
+    "searchTerm": "Africa, West",
+    "geometry": {
+      "lat": -8.783195,
+      "lng": 34.508523
+    }
+  },
+  {
+    "searchTerm": "Western Africa",
+    "geometry": {
+      "lat": 13.531665,
+      "lng": -2.4604145
+    }
+  },
+  {
+    "searchTerm": "Cape of Good Hope",
+    "geometry": {
+      "lat": -34.3570158,
+      "lng": 18.473668
+    }
+  },
+  {
+    "searchTerm": "Africa, Southern",
+    "geometry": {
+      "lat": -16.9620634,
+      "lng": 26.419389
+    }
+  },
+  {
+    "searchTerm": "Southern Africa",
+    "geometry": {
+      "lat": -24.3570767,
+      "lng": 19.5687103
+    }
+  },
+  {
+    "searchTerm": "Africa, Central",
+    "geometry": {
+      "lat": -21.1672276,
+      "lng": 26.419389
+    }
+  },
+  {
+    "searchTerm": "Central Africa",
+    "geometry": {
+      "lat": 2.3184621,
+      "lng": 19.5687103
+    }
+  },
+  {
+    "searchTerm": "Suez Canal",
+    "geometry": {
+      "lat": 30.840842,
+      "lng": 32.32634040000001
+    }
+  },
+  {
+    "searchTerm": "Africa, Eastern",
+    "geometry": {
+      "lat": 1.2692186,
+      "lng": 33.438353
+    }
+  },
+  {
+    "searchTerm": "Eastern Africa",
+    "geometry": {
+      "lat": 1.957709,
+      "lng": 37.2972044
+    }
+  },
+  {
+    "searchTerm": "Africa, Northeast",
+    "geometry": {
+      "lat": -8.783195,
+      "lng": 34.508523
+    }
+  },
+  {
+    "searchTerm": "Northeast Africa",
+    "geometry": {
+      "lat": 9.1303782,
+      "lng": 41.2808577
+    }
+  },
+  {
+    "searchTerm": "Egypt and Nubia",
+    "geometry": {
+      "lat": 22.5173453,
+      "lng": 31.76513619999999
+    }
+  },
+  {
+    "searchTerm": "Algeria",
+    "geometry": {
+      "lat": 28.033886,
+      "lng": 1.659626
+    }
+  },
+  {
+    "searchTerm": "Northwestern Africa",
+    "geometry": {
+      "lat": -13.0050258,
+      "lng": 24.9042208
+    }
+  },
+  {
+    "searchTerm": "Senegal River",
+    "geometry": {
+      "lat": 15.7880556,
+      "lng": -16.5288889
+    }
+  },
+  {
+    "searchTerm": "Nile River",
+    "geometry": {
+      "lat": 27.7765895,
+      "lng": 31.3902684
+    }
+  },
+  {
+    "searchTerm": "Nile river",
+    "geometry": {
+      "lat": 27.7765895,
+      "lng": 31.3902684
+    }
+  },
+  {
+    "searchTerm": "Volta",
+    "geometry": {
+      "lat": 37.0975,
+      "lng": -120.9261111
+    }
+  },
+  {
+    "searchTerm": "Egypt: Suez",
+    "geometry": {
+      "lat": 29.9668343,
+      "lng": 32.5498069
+    }
+  },
+  {
+    "searchTerm": "Northern Egypt",
+    "geometry": {
+      "lat": 18.4448963,
+      "lng": 30.1589303
+    }
+  },
+  {
+    "searchTerm": "Lower Egypt",
+    "geometry": {
+      "lat": 14.4825491,
+      "lng": 121.0347076
+    }
+  },
+  {
+    "searchTerm": "Gambia",
+    "geometry": {
+      "lat": 13.443182,
+      "lng": -15.310139
+    }
+  }
+]

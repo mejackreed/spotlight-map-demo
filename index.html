@@ -1,0 +1,296 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <!-- Mobile viewport optimization h5bp.com/ad -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- <link rel="stylesheet" href="./bower_components/" -->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+		<link rel="stylesheet" href="./style.css" />
+		<link rel="stylesheet" href="./bower_components/leaflet-sidebar/src/L.Control.Sidebar.css" />
+		<link rel="stylesheet" href="./bower_components/leaflet.markerclusterer/dist/MarkerCluster.css" />
+		<link rel="stylesheet" href="./bower_components/leaflet.markerclusterer/dist/MarkerCluster.Default.css" />
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+		<script src="./bower_components/leaflet.markerclusterer/dist/leaflet.markercluster.js"></script>
+		<script src="./bower_components/leaflet-sidebar/src/L.Control.Sidebar.js"></script>
+		<script src="./map.js"></script>
+
+    <title>Blacklight Mapview Demo</title>
+
+  </head>
+  <body class="blacklight-catalog blacklight-catalog-index">
+	  <div id="header-navbar" class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
+		  <div class="container">
+		    <div class="navbar-header">
+		    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#user-util-collapse">
+		      <span class="sr-only">Toggle navigation</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    	</button>
+		    	<a class="navbar-brand" href="/maps_of_africa/">Blacklight</a>
+		    </div>
+
+		    <div class="collapse navbar-collapse" id="user-util-collapse">
+		        <ul class="nav navbar-nav pull-right">
+		      		<li><a href="/maps_of_africa/users/sign_in">Sign in</a></li>
+		    			<li><a href="/maps_of_africa/spotlight/contact_form/new">Report a problem</a></li>
+		  			</ul>
+		    </div>
+		  </div>
+		</div>
+
+		<div id="exhibit-masthead" class="jumbotron">
+		  <div class="container">
+		    <div class="site-title h1">
+		      Maps of Africa: An Online Exhibit
+		        <small>Antiquarian maps of Africa from the Dr. Oscar I. Norwich and Stanford University Libraries collections</small>
+		    </div>
+		  </div>
+		</div>
+
+		<div id="exhibit-navbar" class="navbar navbar-default" role="navigation">
+		  <div class="container">
+		    <ul class="nav navbar-nav">
+		      <li class=""><a href="http://exhibits-demo.stanford.edu/maps_of_africa/"><span class="translation_missing" title="translation missing: en.spotlight.nav.home">Home</span></a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Curated Features <b class="caret"></b></a>
+		          <ul class="dropdown-menu">
+		              <li>
+		              <a href="/maps_of_africa/spotlight/feature/9">Maps of Ethiopia</a>
+		              </li>
+		              <li>
+		              <a href="/maps_of_africa/spotlight/feature/4">The Maps of Nicolas Sanson</a>
+		              </li>
+		              <li>
+		              <a href="/maps_of_africa/spotlight/feature/5">The Caroline Batchelor Collection</a>
+		              </li>
+		          </ul>
+		        </li>
+		      <li class=""><a href="/maps_of_africa/spotlight/exhibits/1/browse">Browse</a></li>
+		      <li class=""><a href="/maps_of_africa/spotlight/about/2">About</a></li>
+		    </ul>
+
+		    <div class="navbar-right col-sm-4 col-md-4"> 
+		        <form accept-charset="UTF-8" action="http://exhibits-demo.stanford.edu/maps_of_africa/spotlight/exhibits/1/catalog" class="search-query-form form-inline clearfix navbar-form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+					    <input name="exhibit_id" type="hidden" value="1" />
+
+					    <div class="input-group">
+				        <label for="q" class="sr-only">Search...</label>
+			          <input class="search_q q form-control" id="q" name="q" placeholder="Search..." type="text" value="africa" />
+
+					      <span class="input-group-btn">
+					        <button type="submit" class="btn btn-primary search-btn" id="search">
+					          <span class="submit-search-text">Search</span>
+					          <span class="glyphicon glyphicon-search"></span>
+					        </button>
+				        </span>
+				      </div>
+						</form>
+		    </div>
+		  </div>
+		</div>
+		<div id="content-header" class="navbar">
+		  <div class="container">
+		    <div class="row">
+		      <div class="col-sm-8 col-md-8"> 
+		        <ul class="breadcrumb"><li><a href="/maps_of_africa/spotlight/exhibits/1?q=">Maps of Africa: An Online Exhibit</a></li><li class="active">Search Results</li></ul>
+		      </div>
+		      <div class="navbar-right col-sm-4 col-md-4"> 
+		        
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+	  <div id="ajax-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal menu" aria-hidden="true">
+	    <div class="modal-dialog">
+	      <div class="modal-content">
+	      </div>
+	    </div>
+	  </div>
+
+	  <div id="main-container" class="container">
+	    <div class="row">
+	      <div class="col-md-12">
+	        <div id="main-flashes">
+	          <div class="flash_messages">
+						</div>
+	        </div>
+	      </div>
+	    </div>
+
+	    <div class="row">
+	      <div id="sidebar" class="col-md-3">
+	 				<div id="facets" class="facets sidenav">
+
+					  <div class="top-panel-heading panel-heading">
+					    <button type="button" class="facets-toggle" data-toggle="collapse" data-target="#facet-panel-collapse">
+					      <span class="sr-only">Toggle facets</span>
+					      <span class="icon-bar"></span>
+					      <span class="icon-bar"></span>
+					      <span class="icon-bar"></span>
+					    </button>
+
+						  <h4>
+						  	Limit your search
+						  </h4>
+				    </div>
+
+  <div id="facet-panel-collapse" class="collapse panel-group">
+  	<div class="panel panel-default facet_limit blacklight-subject_geographic_ssim ">
+  		<div class="collapsed collapse-toggle panel-heading" data-toggle="collapse" data-target="#facet-geographic-region">
+		    <h5 class="panel-title">
+		      <a data-no-turbolink="true" href="#">Geographic Region</a>
+		    </h5>
+  		</div>
+	  	<div id="facet-geographic-region" class="panel-collapse facet-content collapse">
+				<div class="panel-body">
+				  <ul class="facet-values list-unstyled">
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_geographic_ssim%5D%5B%5D=Africa--Maps&amp;q=africa">Africa--Maps</a></span><span class="facet-count">241</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_geographic_ssim%5D%5B%5D=Africa&amp;q=africa">Africa</a></span><span class="facet-count">53</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_geographic_ssim%5D%5B%5D=Africa%2C+North&amp;q=africa">Africa, North</a></span><span class="facet-count">50</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_geographic_ssim%5D%5B%5D=Northern+Africa&amp;q=africa">Northern Africa</a></span><span class="facet-count">50</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_geographic_ssim%5D%5B%5D=Egypt&amp;q=africa">Egypt</a></span><span class="facet-count">47</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_geographic_ssim%5D%5B%5D=Africa%2C+West&amp;q=africa">Africa, West</a></span><span class="facet-count">24</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_geographic_ssim%5D%5B%5D=Western+Africa&amp;q=africa">Western Africa</a></span><span class="facet-count">24</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_geographic_ssim%5D%5B%5D=Africa%2C+Southern&amp;q=africa">Africa, Southern</a></span><span class="facet-count">17</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_geographic_ssim%5D%5B%5D=Southern+Africa&amp;q=africa">Southern Africa</a></span><span class="facet-count">17</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_geographic_ssim%5D%5B%5D=Africa%2C+Eastern&amp;q=africa">Africa, Eastern</a></span><span class="facet-count">15</span>              
+				    </li>
+					</ul>
+		    </div>
+  		</div>
+		</div>
+
+		<div class="panel panel-default facet_limit blacklight-genre_ssim ">
+		  <div class="collapsed collapse-toggle panel-heading" data-toggle="collapse" data-target="#facet-genre">
+		    <h5 class="panel-title">
+		      <a data-no-turbolink="true" href="#">Genre</a>
+		    </h5>
+		  </div>
+		  <div id="facet-genre" class="panel-collapse facet-content collapse">
+		    <div class="panel-body">
+		      <ul class="facet-values list-unstyled">
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bgenre_ssim%5D%5B%5D=Digital+maps&amp;q=africa">Digital maps</a></span><span class="facet-count">241</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bgenre_ssim%5D%5B%5D=Early+maps+%28to+1800%29&amp;q=africa">Early maps (to 1800)</a></span><span class="facet-count">241</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bgenre_ssim%5D%5B%5D=map&amp;q=africa">map</a></span><span class="facet-count">241</span>              
+				    </li>
+					</ul>
+		    </div>
+	  	</div>
+		</div>
+		<div class="panel panel-default facet_limit blacklight-subject_temporal_ssim ">
+		  <div class="collapsed collapse-toggle panel-heading" data-toggle="collapse" data-target="#facet-era">
+		    <h5 class="panel-title">
+		      <a data-no-turbolink="true" href="#">Era</a>
+		    </h5>
+		  </div>
+		  <div id="facet-era" class="panel-collapse facet-content collapse">
+		    <div class="panel-body">
+		      <ul class="facet-values list-unstyled">
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_temporal_ssim%5D%5B%5D=19th+c.&amp;q=africa">19th c.</a></span><span class="facet-count">118</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_temporal_ssim%5D%5B%5D=18th+c.&amp;q=africa">18th c.</a></span><span class="facet-count">71</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_temporal_ssim%5D%5B%5D=antiquity&amp;q=africa">antiquity</a></span><span class="facet-count">35</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_temporal_ssim%5D%5B%5D=17th+c.&amp;q=africa">17th c.</a></span><span class="facet-count">6</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_temporal_ssim%5D%5B%5D=16th+c.&amp;q=africa">16th c.</a></span><span class="facet-count">5</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_temporal_ssim%5D%5B%5D=19th-20th+c.&amp;q=africa">19th-20th c.</a></span><span class="facet-count">2</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_temporal_ssim%5D%5B%5D=20th+c.&amp;q=africa">20th c.</a></span><span class="facet-count">2</span>              
+				    </li>
+				    <li>
+				        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bsubject_temporal_ssim%5D%5B%5D=unknown&amp;q=africa">unknown</a></span><span class="facet-count">2</span>              
+				    </li>
+					</ul>
+		    </div>
+	 		 </div>
+			</div>
+			<div class="panel panel-default facet_limit blacklight-exhibit_1_tags_ssim ">
+			  <div class="collapsed collapse-toggle panel-heading" data-toggle="collapse" data-target="#facet-exhibit-tags">
+			    <h5 class="panel-title">
+			      <a data-no-turbolink="true" href="#">Exhibit Tags</a>
+			    </h5>
+			  </div>
+			  <div id="facet-exhibit-tags" class="panel-collapse facet-content collapse">
+			    <div class="panel-body">
+			      <ul class="facet-values list-unstyled">
+					    <li>
+					        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bexhibit_1_tags_ssim%5D%5B%5D=watercolor&amp;q=africa">watercolor</a></span><span class="facet-count">3</span>              
+					    </li>
+					    <li>
+					        <span class="facet-label"><a class="facet_select" href="/maps_of_africa/spotlight/exhibits/1/catalog?f%5Bexhibit_1_tags_ssim%5D%5B%5D=green&amp;q=africa">green</a></span><span class="facet-count">1</span>              
+					    </li>
+						</ul>
+			    </div>
+	  		</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="content" class="col-md-9">
+  <h2 class="sr-only top-content-title">Search</h2>
+  <div id="appliedParams" class="clearfix constraints-container">
+    <div class="pull-right">
+      <a class="catalog_startOverLink btn btn-sm btn-text" href="/maps_of_africa/spotlight/exhibits/1/catalog" id="startOverLink">Start Over</a>
+    </div>
+    <span class="constraints-label">You searched for:</span>
+		<span class="btn-group appliedFilter constraint query">
+			<a href="#" class="constraint-value btn btn-sm btn-default btn-disabled">
+        <span class="filterValue">africa</span>
+      </a>
+      <a class="btn btn-default btn-sm remove dropdown-toggle" href="/maps_of_africa/spotlight/exhibits/1/catalog?utf8=%E2%9C%93"><span class="glyphicon glyphicon-remove"></span><span class="sr-only">Remove constraint africa</span></a>
+		</span>
+  </div>
+
+  <!-- Here is the map and leaflet-sidebar div -->
+	<div id="map" class="col-md-12"></div>
+	<div id="leaflet-sidebar"></div>
+<br><br>
+    				
+    	</div>
+  	</div>
+  </body>
+</html>
