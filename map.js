@@ -87,19 +87,26 @@ function setupMap() {
 		
 	});
 
+	//Add click listener to map
 	map.on('click', function(e){
+
+		//hide the sidebar if it is visible
 		if (sidebar.isVisible()){
 			sidebar.hide();
 		}
 	});
 
+	//drag listener on map
 	map.on('drag', function(e){
+
+		//hide the sidebar if it is visible
 		if (sidebar.isVisible()){
 			sidebar.hide();
 		}
 	});
 }
 
+//builds the html for the list in sidebar
 function buildList(title){
 	var list = "<div><ul class='media-list'>";
 	$.each(maps, function(i,val){
@@ -111,6 +118,7 @@ function buildList(title){
 	return list;
 }
 
+//creates a marker that has a click listener in it.  This is necesary to account for places that only have 1 count
 function createMarker(val, latlng){
 	return new L.Marker([latlng.lat, latlng.lng], {searchTerm: val.searchTerm}).on('click', function(e){
 		var title = e.target.options.searchTerm;
@@ -123,6 +131,7 @@ function createMarker(val, latlng){
 	});
 }
 
+//on ready, setup the map
 $(document).ready(function(){
 	setupMap();
 });
