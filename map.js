@@ -27,12 +27,12 @@ function setupMap() {
 	});
 
 	//Grab the placename terms - counts
-	$.ajax('/terms.json').done(function(data){
+	$.ajax('./terms.json').done(function(data){
 		terms = data;
 	});
 
 	//Grab the place geometry
-	$.ajax('/places.json').done(function(data){
+	$.ajax('./places.json').done(function(data){
 		geom = data;
 
 		//iterate through the geometry
@@ -82,7 +82,7 @@ function setupMap() {
 	});
 
 	//Get the Maps of Africa document data
-	$.ajax('/mapsofafrica.json').done(function(data){
+	$.ajax('./mapsofafrica.json').done(function(data){
 		maps = data;
 		
 	});
